@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF Reader with AI Summarizer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>📖 AI-Powered PDF Reader</h1>
+    </header>
+    <main>
+      <section class="upload-section">
+        <input type="file" id="pdfInput" accept="application/pdf">
+        <button id="darkModeToggle">🌙 Dark Mode</button>
+      </section>
+      <section id="pdfControls">
+        <button id="prevPage">⬅️ Previous</button>
+        <span id="pageInfo">Page: <span id="currentPage">0</span> / <span id="totalPages">0</span></span>
+        <button id="nextPage">➡️ Next</button>
+      </section>
+      <div id="pdfViewer"></div>
+      <section class="ai-tools">
+        <h2>AI Features</h2>
+        <textarea id="summary" placeholder="Summary will appear here..." readonly></textarea>
+        <button id="summarizeBtn">📝 Summarize PDF</button>
+        <div class="ask-section">
+          <input type="text" id="question" placeholder="Ask a question about the PDF...">
+          <button id="askBtn">🤔 Get Answer</button>
+        </div>
+        <textarea id="answer" placeholder="Answer will appear here..." readonly></textarea>
+      </section>
+    </main>
+    <footer>
+      <p>Powered by PDF.js & Cohere AI</p>
+    </footer>
+  </div>
+
+  <!-- Include PDF.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+  <script>
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+  </script>
+
+  <!-- App Script -->
+  <script src="app.js"></script>
+</body>
+</html>
